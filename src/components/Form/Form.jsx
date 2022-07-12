@@ -19,10 +19,7 @@ const schema = yup
       .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed for this field '),
     email: yup.string().required().email(),
     age: yup.string().required(),
-    color: yup
-      .string()
-      .required()
-      .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed for this field '),
+    color: yup.string().required(),
     gender: yup.string().nullable().required(),
   })
   .required();
