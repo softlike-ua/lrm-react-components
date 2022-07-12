@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import './Form.styles.scss';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
+import { FormContext } from '../../context/formContext';
 
 const schema = yup
   .object({
@@ -27,6 +28,7 @@ const schema = yup
   .required();
 
 export const Form = () => {
+  const { setFormData } = useContext(FormContext);
   const {
     register,
     handleSubmit,
@@ -39,6 +41,7 @@ export const Form = () => {
   const onSubmit = (data) => {
     alert(JSON.stringify(data));
     localStorage.setItem('form-items', JSON.stringify(data));
+    setFormData(JSON.parse(localStorage.getItem('form-items')));
     reset();
   };
   const resetBtn = () => {
