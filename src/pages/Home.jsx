@@ -1,14 +1,11 @@
 import React from 'react';
-import { Button, Card, Heading, Input, SubHeading } from '../components';
+import { Card, Heading, SubHeading, Form } from '../components';
 
 const Home = () => (
-  <Card bgColor="red">
+  <Card bgColor="#EA8787FF">
     <Heading>Heading</Heading>
     <SubHeading>Sub Heading</SubHeading>
-    <Input labelName="Your Name" inputId="name" />
-    <Button bgColor="green" padding="10px">
-      some text
-    </Button>
+    <Form />
   </Card>
 );
 

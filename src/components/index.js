@@ -4,3 +4,4 @@ export * from './SubHeader/SubHeader';
 export * from './Input/Input';
 export * from './Heading/Heading';
 export * from './SubHeading/SubHeading';
+export * from './Form/Form';
