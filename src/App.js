@@ -1,10 +1,12 @@
 import React from 'react';
 import Home from './pages/Home';
+import Layout from './layout/Layout';
+import './styles/app.scss';
 
 const App = () => (
-  <div className="app">
+  <Layout>
     <Home />
-  </div>
+  </Layout>
 );
 
 export default App;
