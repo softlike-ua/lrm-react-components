@@ -6,12 +6,29 @@ export const Button = ({
   padding = '20px',
   bgColor = 'blue',
   typeBtn = 'button',
-}) => (
-  <button
-    type={typeBtn === 'submit' ? 'submit' : 'button'}
-    style={{ backgroundColor: `${bgColor}`, padding: `${padding}` }}
-    className="btn"
-  >
-    {children}
-  </button>
-);
+  reset,
+  disabledBtn,
+}) => {
+  if (reset) {
+    return (
+      <button
+        type={typeBtn === 'submit' ? 'submit' : 'button'}
+        style={{ backgroundColor: `${bgColor}`, padding: `${padding}` }}
+        className="btn"
+        onClick={reset}
+      >
+        {children}
+      </button>
+    );
+  }
+  return (
+    <button
+      type={typeBtn === 'submit' ? 'submit' : 'button'}
+      style={{ backgroundColor: `${bgColor}`, padding: `${padding}` }}
+      className={disabledBtn ? 'btn disabled-btn' : 'btn'}
+      disabled={disabledBtn}
+    >
+      {children}
+    </button>
+  );
+};
