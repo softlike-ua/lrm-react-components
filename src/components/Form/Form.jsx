@@ -1,28 +1,11 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+import { formValidationSchema } from './FormValidationSchema';
 import './Form.styles.scss';
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { FormContext } from '../../context/formContext';
-
-const schema = yup
-  .object({
-    name: yup
-      .string()
-      .required()
-      .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed for this field '),
-    surname: yup
-      .string()
-      .required()
-      .matches(/^[aA-zZ\s]+$/, 'Only alphabets are allowed for this field '),
-    email: yup.string().required().email(),
-    age: yup.string().required(),
-    color: yup.string().required(),
-    gender: yup.string().nullable().required(),
-  })
-  .required();
 
 export const Form = () => {
   const { setFormData } = useContext(FormContext);
@@ -32,7 +15,7 @@ export const Form = () => {
     formState: { errors, isValid, isDirty },
     reset,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(formValidationSchema),
     mode: 'onChange',
   });
   const onSubmit = (data) => {
@@ -102,6 +85,10 @@ export const Form = () => {
         type="text"
         error={errors.color}
       />
+      <div>
+        <h4>Get notification</h4>
+        <input type="checkbox" {...register('notification')} />
+      </div>
       <div className="form-buttons">
         <Button bgColor="red" padding="10px" typeBtn="button" reset={resetBtn}>
           Cancel

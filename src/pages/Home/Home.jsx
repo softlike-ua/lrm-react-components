@@ -9,19 +9,38 @@ const Home = () => {
   return (
     <div className="content">
       <Card bgColor="#EA8787FF">
-        <Heading>Heading</Heading>
+        <Heading>Register</Heading>
         <SubHeading>Sub Heading</SubHeading>
         <Form />
       </Card>
       {Object.keys(formContext.formData).length > 0 && (
         <Card bgColor={formContext.formData.color}>
-          <Heading>Heading</Heading>
+          <Heading>Results</Heading>
           <SubHeading>Sub Heading</SubHeading>
-          <div>{formContext.formData.gender}</div>
-          <div>{formContext.formData.name}</div>
-          <div>{formContext.formData.surname}</div>
-          <div>{formContext.formData.email}</div>
-          <div>{formContext.formData.age}</div>
+          <div>
+            <h4>Gender</h4>
+            <p>{formContext.formData.gender}</p>
+          </div>
+          <div>
+            <h4>Name</h4>
+            <p>{formContext.formData.name}</p>
+          </div>
+          <div>
+            <h4>Surname</h4>
+            <p>{formContext.formData.surname}</p>
+          </div>
+          <div>
+            <h4>Email</h4>
+            <p>{formContext.formData.email}</p>
+          </div>
+          <div>
+            <h4>Age</h4>
+            <p>{formContext.formData.age}</p>
+          </div>
+          <div>
+            <h4>Notification</h4>
+            <p>{formContext.formData.notification.toString()}</p>
+          </div>
         </Card>
       )}
     </div>
